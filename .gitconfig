@@ -1,0 +1,6 @@
+[user]
+	email = xgame1123@naver.com
+	name = bhkim
+[safe]
+	directory = /usr/src/aidt/entry-aidt
+	directory = /usr/src/makecode/pxt-microbit

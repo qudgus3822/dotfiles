@@ -27,6 +27,7 @@
 - Run: `cm` from project root
 - Scan main repository + all submodules for changes
 - **Commit order: ALWAYS commit submodules FIRST, then root repository**
+
   1. Detect all submodules with uncommitted changes
   2. Generate and commit each submodule separately
   3. Finally, commit root repository (including submodule reference updates)

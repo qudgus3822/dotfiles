@@ -25,17 +25,28 @@
 ### Monorepo / Submodules
 
 - Run: `cm` from project root
-- Scan main repository + all submodules
+- Scan main repository + all submodules for changes
+- **Commit order: ALWAYS commit submodules FIRST, then root repository**
+  1. Detect all submodules with uncommitted changes
+  2. Generate and commit each submodule separately
+  3. Finally, commit root repository (including submodule reference updates)
+
 - Generate separate commit message for each repository with changes
 - Output format:
 
 ```
-  [Main]
-  commit message
+  [Submodule: path/to/submodule1]
+  commit message for submodule1
 
-  [Submodule: name]
-  commit message
+  [Submodule: path/to/submodule2]
+  commit message for submodule2
+
+  [Main Repository]
+  commit message for root (including submodule updates if any)
 ```
+
+- After committing submodules, root repository will show submodule reference changes
+- Include these reference updates in root commit message
 
 ## Commit Message Guidelines
 

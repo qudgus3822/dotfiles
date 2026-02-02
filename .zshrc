@@ -104,7 +104,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-fpath+=('/home/bhkim/.nvm/versions/node/v20.14.0/lib/node_modules/pure-prompt/functions')
+# Pure prompt 설정 (nvm으로 설치된 경우 동적 경로 사용)
+if [ -d "$NVM_DIR/versions/node" ]; then
+    PURE_PATH=$(find "$NVM_DIR/versions/node" -path "*/pure-prompt/functions" -type d 2>/dev/null | head -1)
+    [ -n "$PURE_PATH" ] && fpath+=("$PURE_PATH")
+fi
 autoload -U promptinit; promptinit
 prompt pure
 

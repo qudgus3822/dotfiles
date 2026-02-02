@@ -1,6 +1,33 @@
 [user]
 	email = xgame1123@naver.com
 	name = bhkim
-[safe]
-	directory = /usr/src/aidt/entry-aidt
-	directory = /usr/src/makecode/pxt-microbit
+
+[core]
+	editor = code --wait
+	autocrlf = input
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	lg = log --oneline --graph --decorate -20
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	undo = reset --soft HEAD~1
+
+[diff]
+	colorMoved = default
+
+[merge]
+	conflictstyle = diff3

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 스크립트가 위치한 디렉토리를 기준으로 경로 설정
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 # .claude 디렉토리 생성 (없으면)
 mkdir -p ~/.claude
 
@@ -21,9 +24,9 @@ backup_if_exists ~/.gitconfig
 # 심볼릭 링크 생성
 echo ""
 echo "심볼릭 링크 생성 중..."
-ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf "$DOTFILES_DIR/.claude/CLAUDE.md" ~/.claude/CLAUDE.md
+ln -sf "$DOTFILES_DIR/.zshrc" ~/.zshrc
+ln -sf "$DOTFILES_DIR/.gitconfig" ~/.gitconfig
 
 echo ""
 echo "✓ Claude Code 설정 완료"
